@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content2 %}
+<h1>Calculator</h1>
+<form action = "." method="post">
+    {% csrf_token %}
+    <label for="num1">Number 1</label>
+    <input type="number" name="num1" required>
+    <br> <br>
+    <label for="num1">Number 2</label>
+    <input type="number" name="num2" required>
+    <br> <br>
+    <input type="submit" value="Add">
+    {% if req.method == "POST" %}
+        <h1>Result: {{result}} </h1>
+    {% endif %}
+</form>
+{% endblock %}
